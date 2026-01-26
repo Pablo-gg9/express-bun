@@ -41,3 +41,8 @@ export function getMoviesByTitleAndGenre(db: Database,title: string,genero: stri
     )
     return query.all(`%${title}%`, `%${genero}%`)
 }
+
+export function insertMovie(db:Database, nombre:string, genre:string){
+    const query =db.query("INSERT INTO movies (nombre,genre) VALUES (?,?) ")
+    return query.run(nombre,genre)
+}
